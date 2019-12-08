@@ -34,8 +34,8 @@ SELECT DISTINCT title_type FROM title_basics;
 
 
 --- Of these title_types, which has the most records? The least records? http://www.postgresqltutorial.com/postgresql-count-function/
-SELECT MAX(title_type) FROM title_basics;
-SELECT MIN(title_type) FROM title_basics;
+SELECT MAX(title_type) FROM title_basics; --videoGame
+SELECT MIN(title_type) FROM title_basics; --movie
 
 
 
@@ -55,7 +55,7 @@ WHERE length(primary_title) = (SELECT max(length(primary_title)) FROM title_basi
 
 
 
---- How many titles are either documentaries from the 1800s or Comedies from 2018 that are less than one hour long?
+--- How many titles are either documentaries from the 1800s or Comedies from 2018 that are less than one hour long? 2,906
 SELECT COUNT (*) FROM title_basics
 WHERE genres = 'Documentary' AND start_year BETWEEN '1800' AND '1899'
 OR
@@ -63,6 +63,6 @@ genres = 'Comedy' AND start_year = '2018' and runtime_minutes < '60';
 
 
 
---- My favorite title is tt3467114 . Which title is it?
+--- My favorite title is tt3467114 . Which title is it? Halo 5: Guardians
 SELECT primary_title FROM title_basics
 WHERE tconst = 'tt3467114'
